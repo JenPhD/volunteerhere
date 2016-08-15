@@ -1,63 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Volunteer Here</title>
+<html>
+  <head>
+    <title>Place Autocomplete Hotel Search</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <body>
 
-	<!--Google fonts-->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=">
-	<!--Bootstrap-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <div id="findhotels">
+      Find hotels in:
+    </div>
 
-	<!-- Site specific overrides -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <div id="locationField">
+      <input id="autocomplete" placeholder="Enter a city" type="text" />
+    </div>
 
-</head>
-<body>
+    <div id="controls">
+      <select id="country">
+        <option value="us" selected>U.S.A.</option>
+      </select>
+    </div>
 
-<div class="container">
-	<br>
+    <div id="map"></div>
 
-	<!-- Jumbotron Title -->
-	<div class="jumbotron">
-		<h1 class="text-center">Volunteer Here</h1>
-		<h3 class="text-center"></h3>
-	</div>
+    <div id="listing">
+      <table id="resultsTable">
+        <tbody id="results"></tbody>
+      </table>
+    </div>
 
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-						<h3 class="panel-title"></h3>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>
-	
-</div>
-<footer class="footer">
-      
-</footer>
+    <div style="display: none">
+      <div id="info-content">
+        <table>
+          <tr id="iw-url-row" class="iw_table_row">
+            <td id="iw-icon" class="iw_table_icon"></td>
+            <td id="iw-url"></td>
+          </tr>
+          <tr id="iw-address-row" class="iw_table_row">
+            <td class="iw_attribute_name">Address:</td>
+            <td id="iw-address"></td>
+          </tr>
+          <tr id="iw-phone-row" class="iw_table_row">
+            <td class="iw_attribute_name">Telephone:</td>
+            <td id="iw-phone"></td>
+          </tr>
+          <tr id="iw-rating-row" class="iw_table_row">
+            <td class="iw_attribute_name">Rating:</td>
+            <td id="iw-rating"></td>
+          </tr>
+          <tr id="iw-website-row" class="iw_table_row">
+            <td class="iw_attribute_name">Website:</td>
+            <td id="iw-website"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaUyn2RKcE8ngjkzT_MdoiUYyVodn4X3g&libraries=places&callback=initMap"
+        async defer></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-	
-  <!-- jQuery 2.2.4 -->
-  <script src="assets/javascript/jquery-2.2.4.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <!--firebase-->
-  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-  <!--moment.js-->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-  <!-- Local javascript operations file -->
-  <script src="assets/javascript/app.js"></script>
-
-</body>
+  </body>
 </html>
