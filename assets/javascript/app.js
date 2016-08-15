@@ -104,3 +104,45 @@
 //We need to think about whether we are going to just display what is available or give users the ability
 //to pick flights, pick their volunteer opportunity, and pick their lodging to save as their unique trip
 //or whether we are going to just display what is available/possible. But, these were initial thoughts I had.
+$(document).ready (function(){
+	// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDIB7zQdDc-r5aIEgZoMQGFJliLmJy7hEQ",
+    authDomain: "volunteerhere-f345e.firebaseapp.com",
+    databaseURL: "https://volunteerhere-f345e.firebaseio.com",
+    storageBucket: "volunteerhere-f345e.appspot.com",
+  };
+  firebase.initializeApp(config);
+	//sets interval time between each photo
+	$('.carousel').carousel({
+	  interval: 1000 * 5
+	});
+
+	$('#login').on('click', function() {
+
+		//signs in users with an account
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		});
+	});
+	
+	$('#signup').on('click',function() {
+		
+		//firebase new user sign up
+		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		});
+	});
+	//allows user to signout
+	firebase.auth().signOut().then(function() {
+	  // Sign-out successful.
+	}, function(error) {
+	  // An error happened.
+	});
+});
