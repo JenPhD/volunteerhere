@@ -71,169 +71,176 @@ $(document).ready (function(){
 	//Functions for feature destinations in carousel
 	//NYC
 
-	$(document.body).on('click', '#NYC', function() {
-  		//Creating a search object as specified in Volunteer Match docs
-  		//returns volunteer opportunities in the clicked on feature destination
-		var volSearch = {
-   		"location": "New York City, NY",
-        "opportunityTypes": ["public", "private"], 
-        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
-	 	};
+	// $(document.body).on('click', '#NYC', function() {
+ //  		//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "New York City, NY",
+ //        "opportunityTypes": ["public", "private"], 
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
 	
-  		//first empty the div with any previous search results
-  		$('#volResults').empty();
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
 
-  		//Build the queryURL with the query URL base and the search terms -- the destination (and trip dates?)
+ //  		//Build the queryURL with the query URL base and the search terms -- the destination (and trip dates?)
 
-  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
-  		console.log("about to AJAX");
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
 
-  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
-  			//with an AJAX call
-  			$.ajax({url: queryURL, method: 'GET'})
-			.done(function(response) {
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
 			
-			//Make a variable that stores the JSON from the volunteer match API
-			var volMatch = response;
-			console.log(volMatch);
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
 				
-		});
-	});
+	// 	});
+	// });
 
-	//AUSTIN
+	// //AUSTIN
 
-	$(document.body).on('click', '#AUSTIN', function() {
-		//Creating a search object as specified in Volunteer Match docs
-  		//returns volunteer opportunities in the clicked on feature destination
-		var volSearch = {
-   		"location": "Austin, TX",
-        "opportunityTypes": ["public", "private"],
-        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
-	 	};
+	// $(document.body).on('click', '#AUSTIN', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Austin, TX",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
 	
-  		//first empty the div with any previous search results
-  		$('#volResults').empty();
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
 
-  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
 
-  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
-  		console.log("about to AJAX");
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
 
-  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
-  			//with an AJAX call
-  			$.ajax({url: queryURL, method: 'GET'})
-			.done(function(response) {
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
 			
-			//Make a variable that stores the JSON from the volunteer match API
-			var volMatch = response;
-			console.log(volMatch);
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
 				
-		});
-	});
+	// 	});
+	// });
 
-	//WASHINGTON DC
+	// //WASHINGTON DC
 
-	$(document.body).on('click', '#WDC', function() {
-		//Creating a search object as specified in Volunteer Match docs
-  		//returns volunteer opportunities in the clicked on feature destination
-		var volSearch = {
-   		"location": "Washington DC",
-        "opportunityTypes": ["public", "private"],
-        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
-	 	};
+	// $(document.body).on('click', '#WDC', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Washington DC",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
 	
-  		//first empty the div with any previous search results
-  		$('#volResults').empty();
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
 
-  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
 
-  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
-  		console.log("about to AJAX");
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
 
-  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
-  			//with an AJAX call
-  			$.ajax({url: queryURL, method: 'GET'})
-			.done(function(response) {
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
 			
-			//Make a variable that stores the JSON from the volunteer match API
-			var volMatch = response;
-			console.log(volMatch);
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
 				
-		});
-	});
+	// 	});
+	// });
 
-	//AUSTIN
+	// //AUSTIN
 
-	$(document.body).on('click', '#LA', function() {
-		//Creating a search object as specified in Volunteer Match docs
-  		//returns volunteer opportunities in the clicked on feature destination
-		var volSearch = {
-   		"location": "Los Angeles, CA",
-        "opportunityTypes": ["public", "private"],
-        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
-	 	};
+	// $(document.body).on('click', '#LA', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Los Angeles, CA",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
 	
-  		//first empty the div with any previous search results
-  		$('#volResults').empty();
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
 
-  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
 
-  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
-  		console.log("about to AJAX");
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
 
-  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
-  			//with an AJAX call
-  			$.ajax({url: queryURL, method: 'GET'})
-			.done(function(response) {
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
 			
-			//Make a variable that stores the JSON from the volunteer match API
-			var volMatch = response;
-			console.log(volMatch);
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
 				
-		});
-	});
+	// 	});
+	// });
 
-	//CHICAGO
+	// //CHICAGO
 
-	$(document.body).on('click', '#CHICAGO', function() {
-		//Creating a search object as specified in Volunteer Match docs
-  		//returns volunteer opportunities in the clicked on feature destination
-		var volSearch = {
-   		"location": "Chicago, IL",
-        "opportunityTypes": ["public", "private"],
-        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
-	 	};
+	// $(document.body).on('click', '#CHICAGO', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Chicago, IL",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
 	
-  		//first empty the div with any previous search results
-  		$('#volResults').empty();
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
 
-  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
 
-  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
-  		console.log("about to AJAX");
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
 
-  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
-  			//with an AJAX call
-  			$.ajax({url: queryURL, method: 'GET'})
-			.done(function(response) {
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
 			
-			//Make a variable that stores the JSON from the volunteer match API
-			var volMatch = response;
-			console.log(volMatch);
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
 				
-		});
+	// 	});
+	// });
+
+	//This function handles when the user selects a feature destination;
+	$('.featureCity').on('click', function(){
+
+		// This line of code will grab the header from the carousel city.
+		$('#usersDestination').val($(this).attr('name'));
+		console.log($(this).attr('name'));
 	});
 
 	//Create the query URL based on a user destination not in featured destinations.
 	//Added in usersDestination, pushed to our array.
 	//using document.body in case there are any scope problems
 
-	$(document.body).on('click', '#submitCity', function() {
+	$(document.body).on('click', '.submitCity', function() {
   		//First adding to array if it is a new city not in the carousel.
   		// This line of code will grab the input from the textbox and trim any extra spaces
-
   		var newCity = $('#usersDestination').val().trim();
-		
+
 		var volSearch = {
    		"location": newCity,
         "opportunityTypes": ["public", "private"],
@@ -308,8 +315,9 @@ $(document).ready (function(){
 	     			//console.log(encMatchURL);
 	     			var decMatchURL = decodeURIComponent(encMatchURL);
 	     			//console.log(decMatchURL);
-	     			var matchURL = $('<a href>Click here for more info!</a>')
-	     				.attr('src', decMatchURL);
+	     			var matchURL = $('<a>Click here for more information!</a>')
+	     				.addClass('.volMatchURL')
+	     				.attr('href', decMatchURL);
 
 	     			//var flights = 
 
@@ -328,9 +336,9 @@ $(document).ready (function(){
 	    //  			tripDiv.prepend(flights);
 	    //  			tripDiv.prepend(hotels);
 
-	    			//Appending tripDiv to volResults
+	    			//Prepend tripDiv to volResults
 	    			$('#volResults').prepend(tripDiv);
-	    		}
+	    		};
 	    	//Clear the textboxes when done
 			$('#usersOrigin').val(" ");
 			$('#usersDestination').val(" ");

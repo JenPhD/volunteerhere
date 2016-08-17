@@ -73,7 +73,7 @@
 							</div>    
 						</div>
 						
-						<button type="submit" id="submitCity" class="btn btn-default"><span class='fa fa-search'></span> Search</button>
+						<button type="submit" class="submitCity btn btn-default"><span class='fa fa-search'></span> Search</button>
 
 					</form>	
 				</div>		
@@ -83,20 +83,20 @@
 			<div class="c-wrapper">
 				<div class="carousel-inner" role="listbox">
 					<h1 class="destinations">Featured Destinations...</h1>
-					<div id="NYC" class="item active">
+					<div id="NYC" class="featureCity item active" name="New York City, NY">
 						<h2 class="city-name">NEW YORK CITY</h2>
 					</div>
-					<div id="AUSTIN" class="item">
-						<h2 class="city-name">AUSTIN</h2>
+					<div id="AUSTIN" class="featureCity item" name="Austin, TX">
+						<h2 class="city-name">AUSTIN, TX</h2>
 					</div>
-					<div id="WDC" class="item">
+					<div id="WDC" class="featureCity item" name="Washington D.C.">
 						<h2 class="city-name">WASHINGTON D.C.</h2>
 					</div>
-					<div id="LA" class="item">
-						<h2 class="city-name">LOS ANGELES</h2>
+					<div id="LA" class="featureCity item" name="Los Angeles, CA">
+						<h2 class="city-name">LOS ANGELES, CA</h2>
 					</div>
-					<div id="CHICAGO" class="item">
-						<h2 class="city-name">CHICAGO</h2>
+					<div id="CHICAGO" class="featureCity item" name="Chicago, IL">
+						<h2 class="city-name">CHICAGO, IL</h2>
 					</div>
 				</div>
 			</div>
@@ -108,13 +108,14 @@
     			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>	
     		</a>	
 		</div>	
+
 	<div class="row">
 		<div class="col-lg-12">
 			<h1>Volunteer Opportunites</h1>
 		</div>
 	</div>
 	<div class="row">
-		<div id="volResults" class="col-lg-12"></div>	
+		<div id="volResults" class="col-lg-12"></div>
 	</div>	
 	</div> <!-- end of container -->
 	
@@ -125,16 +126,14 @@
 
 	<!-- Firebase JavaScript Link -->
 	<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>  
-  <!-- jQuery 2.2.4 -->
-  <script src="assets/javascript/jquery-2.2.4.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <!--firebase-->
-  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-  <!--moment.js-->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-  <!-- Local javascript operations file -->
-  <script src="assets/javascript/app.js"></script>
+  	<!-- jQuery 2.2.4 -->
+  	<script src="assets/javascript/jquery-2.2.4.min.js"></script>
+  	<!-- Latest compiled and minified JavaScript -->
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  	<!--moment.js-->
+  	<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+  	<!-- Local javascript operations file -->
+  	<script src="assets/javascript/app.js"></script>
 
 </body>
 </html>
