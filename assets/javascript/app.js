@@ -76,7 +76,8 @@ $(document).ready (function(){
   		//returns volunteer opportunities in the clicked on feature destination
 		var volSearch = {
    		"location": "New York City, NY",
-        "opportunityTypes": ["public", "private"]
+        "opportunityTypes": ["public", "private"], 
+        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
 	 	};
 	
   		//first empty the div with any previous search results
@@ -96,7 +97,6 @@ $(document).ready (function(){
 			var volMatch = response;
 			console.log(volMatch);
 				
-			return false;
 		});
 	});
 
@@ -107,7 +107,8 @@ $(document).ready (function(){
   		//returns volunteer opportunities in the clicked on feature destination
 		var volSearch = {
    		"location": "Austin, TX",
-        "opportunityTypes": ["public", "private"]
+        "opportunityTypes": ["public", "private"],
+        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
 	 	};
 	
   		//first empty the div with any previous search results
@@ -127,7 +128,6 @@ $(document).ready (function(){
 			var volMatch = response;
 			console.log(volMatch);
 				
-			return false;
 		});
 	});
 
@@ -138,7 +138,8 @@ $(document).ready (function(){
   		//returns volunteer opportunities in the clicked on feature destination
 		var volSearch = {
    		"location": "Washington DC",
-        "opportunityTypes": ["public", "private"]
+        "opportunityTypes": ["public", "private"],
+        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
 	 	};
 	
   		//first empty the div with any previous search results
@@ -158,7 +159,6 @@ $(document).ready (function(){
 			var volMatch = response;
 			console.log(volMatch);
 				
-			return false;
 		});
 	});
 
@@ -169,7 +169,8 @@ $(document).ready (function(){
   		//returns volunteer opportunities in the clicked on feature destination
 		var volSearch = {
    		"location": "Los Angeles, CA",
-        "opportunityTypes": ["public", "private"]
+        "opportunityTypes": ["public", "private"],
+        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
 	 	};
 	
   		//first empty the div with any previous search results
@@ -189,7 +190,6 @@ $(document).ready (function(){
 			var volMatch = response;
 			console.log(volMatch);
 				
-			return false;
 		});
 	});
 
@@ -200,7 +200,8 @@ $(document).ready (function(){
   		//returns volunteer opportunities in the clicked on feature destination
 		var volSearch = {
    		"location": "Chicago, IL",
-        "opportunityTypes": ["public", "private"]
+        "opportunityTypes": ["public", "private"],
+        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
 	 	};
 	
   		//first empty the div with any previous search results
@@ -220,7 +221,6 @@ $(document).ready (function(){
 			var volMatch = response;
 			console.log(volMatch);
 				
-			return false;
 		});
 	});
 
@@ -242,10 +242,6 @@ $(document).ready (function(){
 
 		// The city from the textbox is then added to our array
 		featureDestinations.push(volSearch.location);
-
-		//Clear the textboxes when done
-		$('#usersOrigin').val(" ");
-		$('#usersDestination').val(" ");
 	
   		//first empty the div with any previous search results
   		$('#volResults').empty();
@@ -277,7 +273,7 @@ $(document).ready (function(){
 	     			//First adding end date, results should display in ascending order
 	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').html(volMatch[j].endDate);
 	     			//Adding organization name
-	      			var orgName = $('<p class="volOrgName">').text("Here are your volunteer matches: " + volMatch[j].parentOrg.name);
+	      			var orgName = $('<p class="volOrgName">').text(volMatch[j].parentOrg.name);
 	     			//console.log(orgName);
 
 	     			//Docs say there are images available, but I don't see one in the response
@@ -321,9 +317,11 @@ $(document).ready (function(){
 	    //  			tripDiv.prepend(hotels);
 
 	    			//Appending tripDiv to volResults
-	    			$('#volResults').append(tripDiv);
-
+	    			$('#volResults').prepend(tripDiv);
 	    		}
+	    	//Clear the textboxes when done
+			$('#usersOrigin').val(" ");
+			$('#usersDestination').val(" ");
 	    });	
 	    // We have this line so that users can hit "enter" instead of clicking on the button
 		return false;
