@@ -236,14 +236,15 @@ $(document).ready (function(){
 		
 		var volSearch = {
    		"location": newCity,
-        "opportunityTypes": ["public", "private"]
+        "opportunityTypes": ["public", "private"],
+        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
 	 	};
 
 		// The city from the textbox is then added to our array
 		featureDestinations.push(volSearch.location);
 
 		//Clear the textboxes when done
-		//$('#usersOrigin').val(" ");
+		$('#usersOrigin').val(" ");
 		$('#usersDestination').val(" ");
 	
   		//first empty the div with any previous search results
@@ -271,15 +272,50 @@ $(document).ready (function(){
 
 	     			var tripDiv = $('<div class="trip">');
 					
-	     			//Add the volunteer opportunities, the google flights, the google hotels
-	      			var orgName = $('<p>').text("Here are your volunteer matches: " + volMatch[j].parentOrg.name);
-	     			console.log(orgName);
+	     			//Add the volunteer opportunities
+
+	     			//First adding end date, results should display in ascending order
+	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').html(volMatch[j].endDate);
+	     			//Adding organization name
+	      			var orgName = $('<p class="volOrgName">').text("Here are your volunteer matches: " + volMatch[j].parentOrg.name);
+	     			//console.log(orgName);
+
+	     			//Docs say there are images available, but I don't see one in the response
+	     			var imgURL = $('<img>')
+	     			.addClass('volImage')
+	     			.attr('src', volMatch[j].imageURL);
+
+	     			//Adding description
+
+	     			var orgDescription = $('<p class="volDescription">').text(volMatch[j].description);
+
+	     			//Adding location
+	     			var loc = $('<p class="volLocation">').text(volMatch[j].location);
+
+	     			//Docs say there is contact info available, but I don't see one in the response
+
+	     			var contactOrg = $('<p class="volContact">').text(volMatch[j].contact);
+
+	     			//Organization URL
+
+	     			var orgURL = $('<a href="Website">').html(volMatch[j].url);
+
+	     			//Volunteer Match URL
+
+	     			var matchURL = $('<a href="Volunteer Match">').html(volMatch[j].vmUrl);
 
 	     			//var flights = 
 
 	     			//var hotels = 
-	     		
-	 	 			tripDiv.prepend(orgName);
+	     			
+	     			tripDiv.append(endingDate);
+	 	 			tripDiv.append(orgName);
+	 	 			tripDiv.append(imgURL);
+	 	 			tripDiv.append(orgDescription);
+	 	 			tripDiv.append(loc);
+	 	 			tripDiv.append(contactOrg);
+	 	 			tripDiv.append(orgURL);
+	 	 			tripDiv.append(matchURL);
 	    //  			tripDiv.prepend(cityImages);
 	    //  			tripDiv.prepend(flights);
 	    //  			tripDiv.prepend(hotels);
@@ -293,6 +329,9 @@ $(document).ready (function(){
 		return false;
 	});
 
+
+
+  
 
 
   
