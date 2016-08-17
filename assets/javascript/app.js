@@ -49,7 +49,7 @@ $(document).ready (function(){
 	var authenticationHeaders = {
   		"X-WSSE": volunteerAPIkey,
   		"Authorization": "WSSE profile='\ VolunteerHere\'" 
-	}
+	};
 
 	var queryURLBase = "https://www.volunteermatch.org/api/call?action=searchOpportunities";
 
@@ -237,7 +237,7 @@ $(document).ready (function(){
 		var volSearch = {
    		"location": newCity,
         "opportunityTypes": ["public", "private"],
-        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+        "fieldsToDisplay": ["title", "imageUrl", "name", "url", "contact", "location", "endDate", "plaintextDescription", "vmUrl"]
 	 	};
 
 		// The city from the textbox is then added to our array
@@ -249,7 +249,6 @@ $(document).ready (function(){
   		//Build the queryURL with the query URL base and the search terms --the destination (and trip dates?)
 
   		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
-  		console.log("about to AJAX");
 
   		//GET function to retrieve information about the volunteer opportunities from the volunteer match API
   		//with an AJAX call
@@ -270,47 +269,56 @@ $(document).ready (function(){
 					
 	     			//Add the volunteer opportunities
 
-	     			//First adding end date, results should display in ascending order
-	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').html(volMatch[j].endDate);
-	     			//Adding organization name
+	     			//Title of volunteer opportunity
+	     			var oppTitle = $('<h3 class="volTitle">').html(volMatch[j].parentOrg.title);
+
+	     			//End date
+	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').html(volMatch[j].availability.endDate);
+	     			//Organization name
 	      			var orgName = $('<p class="volOrgName">').text(volMatch[j].parentOrg.name);
 	     			//console.log(orgName);
 
-	     			//Docs say there are images available, but I don't see one in the response
-	     			var imgURL = $('<img>')
-	     			.addClass('volImage')
-	     			.attr('src', volMatch[j].imageURL);
+	     			//Images URL. Need to convert to an actual image.
+	     			var encImgURL = volMatch[j].imageUrl;
+	     			var decImgURL = decodeURIComponent(encImgURL);
+	     			var imgURL = $('<img class="volImage" src="decImgURL">');
+	     		
+	     			//Description of volunteer opportunity
 
-	     			//Adding description
-
-	     			var orgDescription = $('<p class="volDescription">').text(volMatch[j].description);
+	     			var orgDescription = $('<p class="volDescription">').text(volMatch[j].plaintextDescription);
 
 	     			//Adding location
-	     			var loc = $('<p class="volLocation">').text(volMatch[j].location);
+	     			var loc = $('<p class="volLocation">').text(volMatch[j].location.city + ", " + volMatch[j].location.region);
 
 	     			//Docs say there is contact info available, but I don't see one in the response
 
-	     			var contactOrg = $('<p class="volContact">').text(volMatch[j].contact);
+	     			//var contactOrg = $('<p class="volContact">').text(volMatch[j].contact);
 
 	     			//Organization URL
 
-	     			var orgURL = $('<a href="Website">').html(volMatch[j].url);
+	     			//var encOrgURL = volMatch[j].url;
+	     			//var decOrgURL = decodeURIComponent(encOrgURL);
+	     			//var orgURL = $('<a href="Organization Website">').html(decOrgURL);
 
 	     			//Volunteer Match URL
 
-	     			var matchURL = $('<a href="Volunteer Match">').html(volMatch[j].vmUrl);
+	     			var encMatchURL = volMatch[j].vmUrl;
+	     			var decMatchURL = decodeURIComponent(encMatchURL);
+	     			var matchURL = $('<a href="Volunteer Match Website">').html(decMatchURL);
 
 	     			//var flights = 
 
 	     			//var hotels = 
 	     			
+	     			tripDiv.append(oppTitle);
 	     			tripDiv.append(endingDate);
 	 	 			tripDiv.append(orgName);
+	 	 			//tripDiv.append(decImgURL);
 	 	 			tripDiv.append(imgURL);
 	 	 			tripDiv.append(orgDescription);
 	 	 			tripDiv.append(loc);
-	 	 			tripDiv.append(contactOrg);
-	 	 			tripDiv.append(orgURL);
+	 	 			//tripDiv.append(contactOrg);
+	 	 			//tripDiv.append(orgURL);
 	 	 			tripDiv.append(matchURL);
 	    //  			tripDiv.prepend(cityImages);
 	    //  			tripDiv.prepend(flights);
