@@ -51,7 +51,7 @@ $(document).ready (function(){
   		"Authorization": "WSSE profile='\ VolunteerHere\'" 
 	}
 
-	var queryURLBase = "http://www.volunteermatch.org/api/call?action=searchOpportunities";
+	var queryURLBase = "https://www.volunteermatch.org/api/call?action=searchOpportunities";
 
 	// metaData for the API Key/site
 	var metaData = null;
