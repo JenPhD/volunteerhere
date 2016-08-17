@@ -1,106 +1,355 @@
-//Not exactly sure if the order for all of these things is correct, but I thought I would just 
-//start a skeleton with some thoughts about the things we will need.
-//LINK TO FIREBASE
-	//======================================================================================
-	// var config = {
+//FIREBASE=================================================================================
+$(document).ready (function(){
+	// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDIB7zQdDc-r5aIEgZoMQGFJliLmJy7hEQ",
+    authDomain: "volunteerhere-f345e.firebaseapp.com",
+    databaseURL: "https://volunteerhere-f345e.firebaseio.com",
+    storageBucket: "volunteerhere-f345e.appspot.com",
+  };
+  firebase.initializeApp(config);
+	//sets interval time between each photo
+	$('.carousel').carousel({
+	  interval: 1000 * 5
+	});
 
-		//}
+	$('#login').on('click', function() {
 
-		//var database = firebase.database();
+		//signs in users with an account
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		});
+	});
+	
+	$('#signup').on('click',function() {
+		
+		//firebase new user sign up
+		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		});
+	});
+	//allows user to signout
+	firebase.auth().signOut().then(function() {
+	  // Sign-out successful.
+	}, function(error) {
+	  // An error happened.
+	});
+});
 
-	//
 //SETUP VARIABLES
-	//================================================================================
-	// var volunteerMatchauthKey = "";
-	// var volqueryURLBase = ""; 
-	// var homeAwayauthKey = "";
-	// var homequeryURLBase = "";
-	// var googleFlightsauthKey = "";
-	// var flightqueryURLBase = "";
-	
+	//============================================================================================
+	var volunteerAPIkey="9560bbac6e597a4e08e3d82094ba5da2";
+	// authentication headers for API requests
+	var authenticationHeaders = {
+  		"X-WSSE": volunteerAPIkey,
+  		"Authorization": "WSSE profile='\ VolunteerHere\'" 
+	};
+
+	var queryURLBase = "https://www.volunteermatch.org/api/call?action=searchOpportunities";
+
+	// metaData for the API Key/site
+	var metaData = null;
 	//This array variable will hold the results we get from the user input after
-	//adding locations.
-
-	//Featured destinations (Just making these up right now. We can change them)
-	// var featureDestinations = ['New York ', 'LA', 'Chicago', 'Orlando', 'Seattle'];
+	//adding a location with the submit button.
 	
+	//Featured destinations (Just making these up right now. We can change them)
+	var featureDestinations = ['New York City, NY', 'Los Angeles, CA', 'Chicago, IL', 'Austin, TX', 'Washington DC'];
+
+	// we will use CORS headers to facilitate certain cross-domain requests
+	jQuery.support.cors = true;
+
 //FUNCTIONS
-	//==================================================================================
-	//First load the inital array of featured destinations.
-	//Render the initial panel carousel on window load.
-	//Will need a for loop for this.
+	//=================================================================================================
+	//Create the query URL based on the chosen destination.
+	//using document.body in case there are any scope problems
+	//Functions for feature destinations in carousel
+	//NYC
 
-	// Event listener for added cities. 
-	//This function handles events when the user inputs a new city not in our featured destinations
+	// $(document.body).on('click', '#NYC', function() {
+ //  		//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "New York City, NY",
+ //        "opportunityTypes": ["public", "private"], 
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
+	
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
 
-	// $('#addDestination').on('click', function(){
+ //  		//Build the queryURL with the query URL base and the search terms -- the destination (and trip dates?)
 
-		// This line of code will grab the input from the textbox and trim any extra spaces
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
 
-		// The city from the textbox is then added to our array with destinations.push
-
-		//Clear the textboxes when done
-		
-		// We have this line so that users can hit "enter" instead of clicking on the button
-		// return false;
-
-		
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
+			
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
+				
+	// 	});
 	// });
 
-	// AJAX calls for flights, home away, and volunteer
-	//====================================================================================================
-	//Create the queryURL. Use document.body. We need to do this for each API and
-	//should be sectioned off, but all within the on click function after the user
-	//has filled in destination and trip dates.
-		//Add volunteer opportunities
+	// //AUSTIN
 
-		//Add available flights
-
-		//Add home away availability
-
-		//Storing all of these as properties of the destination and displayed in html trip panel
-
-	// $(document.body).on('click', '.destination', function() {
-		//first empty the div with any previous destination/trip information
-	   	
-		//Split and join replaces the spaces in a destination name with + so the URL works
-
-		//This builds the queryURL with the queryURLBase, the search term, and the authorization key. 
-		
-		//Use AJAX calls to retrieve the JSON from the APIs
-
-	    	//A variable array of objects returned from the API.
-
-	    		//for loop for the objects in the destinations array.
-	     	
-	     			//Create a new div for the destination
-
-	     			//Putting the destination and trip information into a nice div/panel		
-
-	// });//ending on-click submit destination button
-
-	//FIREBASE
-//===============================================================================
-	//Create firebase event for adding and savingtrips to the database and to the 
-	//html panel displaying trip information.
-	//database.ref().on("child_added", function(childSnapshot, prevChildKey){
-
-	//console.log(childSnapshot.val());
-
-	// Store everything into a variable with childSnapshot.val().
-	//Uploads all of the trip information to the database with 
-		//database.ref().push({})
-
-	//Add information into a final panel??? that displays all of the trip information
-
-
-	//});
+	// $(document.body).on('click', '#AUSTIN', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Austin, TX",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
 	
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
 
-//All of this is a rough outline. Just thoughts of the pieces we will need. Not sure
-//where the login code will go in this outline.
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
 
-//I think this is going to get more complicated as we realize there will be multiple flights at different times.
-//We need to think about whether we are going to just display what is available or give users the ability
-//to pick flights, pick their volunteer opportunity, and pick their lodging to save as their unique trip
-//or whether we are going to just display what is available/possible. But, these were initial thoughts I had.
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
+
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
+			
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
+				
+	// 	});
+	// });
+
+	// //WASHINGTON DC
+
+	// $(document.body).on('click', '#WDC', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Washington DC",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
+	
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
+
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
+
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
+
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
+			
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
+				
+	// 	});
+	// });
+
+	// //AUSTIN
+
+	// $(document.body).on('click', '#LA', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Los Angeles, CA",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
+	
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
+
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
+
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
+
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
+			
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
+				
+	// 	});
+	// });
+
+	// //CHICAGO
+
+	// $(document.body).on('click', '#CHICAGO', function() {
+	// 	//Creating a search object as specified in Volunteer Match docs
+ //  		//returns volunteer opportunities in the clicked on feature destination
+	// 	var volSearch = {
+ //   		"location": "Chicago, IL",
+ //        "opportunityTypes": ["public", "private"],
+ //        "fieldsToDisplay": ["imageURL", "name", "url", "contact", "location", "endDate", "description", "vmUrl"]
+	//  	};
+	
+ //  		//first empty the div with any previous search results
+ //  		$('#volResults').empty();
+
+ //  		//Build the queryURL with the query URL base and the search terms -- (the destination and trip dates)
+
+ //  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+ //  		console.log("about to AJAX");
+
+ //  			//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+ //  			//with an AJAX call
+ //  			$.ajax({url: queryURL, method: 'GET'})
+	// 		.done(function(response) {
+			
+	// 		//Make a variable that stores the JSON from the volunteer match API
+	// 		var volMatch = response;
+	// 		console.log(volMatch);
+				
+	// 	});
+	// });
+
+	//This function handles when the user selects a feature destination;
+	$('.featureCity').on('click', function(){
+
+		// This line of code will grab the header from the carousel city.
+		$('#usersDestination').val($(this).attr('name'));
+		console.log($(this).attr('name'));
+	});
+
+	//Create the query URL based on a user destination not in featured destinations.
+	//Added in usersDestination, pushed to our array.
+	//using document.body in case there are any scope problems
+
+	$(document.body).on('click', '.submitCity', function() {
+  		//First adding to array if it is a new city not in the carousel.
+  		// This line of code will grab the input from the textbox and trim any extra spaces
+  		var newCity = $('#usersDestination').val().trim();
+
+		var volSearch = {
+   		"location": newCity,
+        "opportunityTypes": ["public", "private"],
+        "fieldsToDisplay": ["title", "imageUrl", "name", "url", "contact", "location", "endDate", "plaintextDescription", "vmUrl"]
+	 	};
+
+		// The city from the textbox is then added to our array
+		featureDestinations.push(volSearch.location);
+	
+  		//first empty the div with any previous search results
+  		$('#volResults').empty();
+  		
+  		//Build the queryURL with the query URL base and the search terms --the destination (and trip dates?)
+
+  		var queryURL = queryURLBase + "&key=" + volunteerAPIkey + "&query=" + JSON.stringify(volSearch);
+
+  		//GET function to retrieve information about the volunteer opportunities from the volunteer match API
+  		//with an AJAX call
+  		$.ajax({url: queryURL, method: 'GET'})
+		.done(function(response) {
+			
+			//Make a variable that stores the JSON from the volunteer match API
+			var volMatch = response.opportunities;
+			console.log(volMatch);
+
+
+				//For loop for the city in the volunteer opportunities array.
+	    		for (var j = 0; j < volMatch.length; j++) {
+	     	
+	     			//Create a new div for the volunteer opportunities
+
+	     			var tripDiv = $('<div class="trip">');
+					
+	     			//Add the volunteer opportunities
+
+	     			//Title of volunteer opportunity
+	     			var oppTitle = $('<h3 class="volTitle">').html(volMatch[j].title);
+
+	     			//End date
+	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').text(" End Date: " + volMatch[j].availability.endDate);
+	     			
+	     			//Organization name
+	      			var orgName = $('<p class="volOrgName">').text(volMatch[j].parentOrg.name);
+	     			//console.log(orgName);
+
+	     			//Images URL. Need to convert to an actual image.
+	     			var encImgURL = volMatch[j].imageUrl;
+	     			var decImgURL = decodeURIComponent(encImgURL);
+	     			var imgURL = $('<img>')
+	     				.addClass('volImage')
+	     				.attr('src', decImgURL);
+	     		
+	     			//Description of volunteer opportunity
+
+	     			var orgDescription = $('<p class="volDescription">').text(volMatch[j].plaintextDescription);
+
+	     			//Adding location
+	     			var loc = $('<p class="volLocation">').text(volMatch[j].location.city + ", " + volMatch[j].location.region);
+
+	     			//Docs say there is contact info available, but I don't see one in the response
+
+	     			//var contactOrg = $('<p class="volContact">').text(volMatch[j].contact);
+
+	     			//Organization URL
+
+	     			//var encOrgURL = volMatch[j].url;
+	     			//var decOrgURL = decodeURIComponent(encOrgURL);
+	     			//var orgURL = $('<a href="Organization Website">').html(decOrgURL);
+
+	     			//Volunteer Match URL
+	     			var encMatchURL = volMatch[j].vmUrl;
+	     			//console.log(encMatchURL);
+	     			var decMatchURL = decodeURIComponent(encMatchURL);
+	     			//console.log(decMatchURL);
+	     			var matchURL = $('<a>Click here for more information!</a>')
+	     				.addClass('.volMatchURL')
+	     				.attr('href', decMatchURL);
+
+	     			//var flights = 
+
+	     			//var hotels = 
+	     			
+	     			tripDiv.append(oppTitle);
+	     			tripDiv.append(endingDate);
+	 	 			tripDiv.append(orgName);
+	 	 			tripDiv.append(imgURL);
+	 	 			tripDiv.append(orgDescription);
+	 	 			tripDiv.append(loc);
+	 	 			//tripDiv.append(contactOrg);
+	 	 			//tripDiv.append(orgURL);
+	 	 			tripDiv.append(matchURL);
+	    
+	    //  			tripDiv.prepend(flights);
+	    //  			tripDiv.prepend(hotels);
+
+	    			//Prepend tripDiv to volResults
+	    			$('#volResults').prepend(tripDiv);
+	    		};
+	    	//Clear the textboxes when done
+			$('#usersOrigin').val(" ");
+			$('#usersDestination').val(" ");
+	    });	
+	    // We have this line so that users can hit "enter" instead of clicking on the button
+		return false;
+	});
+
+
+
+  
+
+
+  
