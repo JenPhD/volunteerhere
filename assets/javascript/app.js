@@ -270,10 +270,11 @@ $(document).ready (function(){
 	     			//Add the volunteer opportunities
 
 	     			//Title of volunteer opportunity
-	     			var oppTitle = $('<h3 class="volTitle">').html(volMatch[j].parentOrg.title);
+	     			var oppTitle = $('<h3 class="volTitle">').html(volMatch[j].title);
 
 	     			//End date
-	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').html(volMatch[j].availability.endDate);
+	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').text(" End Date: " + volMatch[j].availability.endDate);
+	     			
 	     			//Organization name
 	      			var orgName = $('<p class="volOrgName">').text(volMatch[j].parentOrg.name);
 	     			//console.log(orgName);
@@ -281,7 +282,9 @@ $(document).ready (function(){
 	     			//Images URL. Need to convert to an actual image.
 	     			var encImgURL = volMatch[j].imageUrl;
 	     			var decImgURL = decodeURIComponent(encImgURL);
-	     			var imgURL = $('<img class="volImage" src="decImgURL">');
+	     			var imgURL = $('<img>')
+	     				.addClass('volImage')
+	     				.attr('src', decImgURL);
 	     		
 	     			//Description of volunteer opportunity
 
@@ -301,10 +304,12 @@ $(document).ready (function(){
 	     			//var orgURL = $('<a href="Organization Website">').html(decOrgURL);
 
 	     			//Volunteer Match URL
-
 	     			var encMatchURL = volMatch[j].vmUrl;
+	     			//console.log(encMatchURL);
 	     			var decMatchURL = decodeURIComponent(encMatchURL);
-	     			var matchURL = $('<a href="Volunteer Match Website">').html(decMatchURL);
+	     			//console.log(decMatchURL);
+	     			var matchURL = $('<a href>Click here for more info!</a>')
+	     				.attr('src', decMatchURL);
 
 	     			//var flights = 
 
@@ -313,14 +318,13 @@ $(document).ready (function(){
 	     			tripDiv.append(oppTitle);
 	     			tripDiv.append(endingDate);
 	 	 			tripDiv.append(orgName);
-	 	 			//tripDiv.append(decImgURL);
 	 	 			tripDiv.append(imgURL);
 	 	 			tripDiv.append(orgDescription);
 	 	 			tripDiv.append(loc);
 	 	 			//tripDiv.append(contactOrg);
 	 	 			//tripDiv.append(orgURL);
 	 	 			tripDiv.append(matchURL);
-	    //  			tripDiv.prepend(cityImages);
+	    
 	    //  			tripDiv.prepend(flights);
 	    //  			tripDiv.prepend(hotels);
 
