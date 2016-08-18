@@ -119,7 +119,45 @@ margin: auto;
 	background-size: cover;
 }
 
+/* floating the volunteer images */
+/*
 
+
+
+
+.volOrgName {
+	text-align: left;
+}
+
+.volDescription {
+	text-align: left;
+}
+
+.volLocation {
+	text-align: left;
+}
+*/
+
+#volTitle {
+	margin: 15px;
+}
+
+#end {
+	margin: 15px;
+}
+
+#org {
+	margin: 15px;
+}
+
+.volImg {
+	zoom: 70%;		
+}
+
+#description {
+	font-size: 17px;
+	
+}
 
 
 

@@ -94,7 +94,8 @@ $(document).ready (function(){
 		var volSearch = {
    		"location": newCity,
         "opportunityTypes": ["public", "private"],
-        "fieldsToDisplay": ["title", "imageUrl", "name", "url", "contact", "location", "endDate", "plaintextDescription", "vmUrl"]
+        "fieldsToDisplay": ["title", "imageUrl", "name", "location", "endDate", "plaintextDescription", "vmUrl"],
+        "numberOfResults": 10
 	 	};
 
 		// The city from the textbox is then added to our array
@@ -122,73 +123,75 @@ $(document).ready (function(){
 	     	
 	     			//Create a new div for the volunteer opportunities
 
-	     			var tripDiv = $('<div class="trip">');
+	     			var volResults = $('<div class="trip">');
 					
 	     			//Add the volunteer opportunities
 
 	     			//Title of volunteer opportunity
-	     			var oppTitle = $('<h3 class="volTitle">').html(volMatch[j].title);
+	     			var oppTitle = $('<h3 id="volTitle">').html(volMatch[j].title);
+	     			
+	     			//Appending to volResults
+	     			volResults.append(oppTitle);
 
 	     			//End date
-	     			var endingDate = $('<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>').text(" End Date: " + volMatch[j].availability.endDate);
+	     			if (volMatch[j].availability.endDate == null) {
+	     				var endingDate = $('<div class="row" id="end">').text("End Date: Ongoing");
+	     			} else {
+	     			var endingDate = $('<div class="row" id="end">').text("End Date: " + volMatch[j].availability.endDate);
+	     			}
+	     			//Appending to volResults
+	     			oppTitle.append(endingDate);
 	     			
 	     			//Organization name
-	      			var orgName = $('<p class="volOrgName">').text(volMatch[j].parentOrg.name);
-	     			//console.log(orgName);
-
-	     			//Images URL. Need to convert to an actual image.
-	     			var encImgURL = volMatch[j].imageUrl;
-	     			var decImgURL = decodeURIComponent(encImgURL);
-	     			var imgURL = $('<img>')
-	     				.addClass('volImage')
-	     				.attr('src', decImgURL);
-	     		
-	     			//Description of volunteer opportunity
-
-	     			var orgDescription = $('<p class="volDescription">').text(volMatch[j].plaintextDescription);
+	      			var orgName = $('<div class="row" id="org">').text(volMatch[j].parentOrg.name);
+	     			endingDate.append(orgName);
 
 	     			//Adding location
-	     			var loc = $('<p class="volLocation">').text(volMatch[j].location.city + ", " + volMatch[j].location.region);
-
-	     			//Docs say there is contact info available, but I don't see one in the response
-
-	     			//var contactOrg = $('<p class="volContact">').text(volMatch[j].contact);
-
-	     			//Organization URL
-
-	     			//var encOrgURL = volMatch[j].url;
-	     			//var decOrgURL = decodeURIComponent(encOrgURL);
-	     			//var orgURL = $('<a href="Organization Website">').html(decOrgURL);
+	     			var loc = $('<div class="row" id="location">').text(volMatch[j].location.city + ", " + volMatch[j].location.region);
+	     			orgName.append(loc);
+	     			//Images URL. Need to convert to an actual image.
+	     			
+	     			if (volMatch[j].imageUrl == null) {
+						var imgURL = $('<img src="assets/images/noImage.jpg">')
+							.addClass('volImg');				
+					} else {
+	     				var encImgURL = volMatch[j].imageUrl;
+	     				var decImgURL = decodeURIComponent(encImgURL);
+	     				var imgURL = $('<img>')
+	     					.addClass('volImg')
+	     					.attr('src', decImgURL);
+	     			}
+	     			//Create new row for images
+	     			var imgRow = $('<div class="row" id="orgImg">').html(imgURL);
+	     			loc.append(imgRow);
+	     			
+	     			//Description of volunteer opportunity
+	     			var orgDescription = $('<div class="row" id="description">').text(volMatch[j].plaintextDescription);
+	     			imgRow.append(orgDescription);
 
 	     			//Volunteer Match URL
 	     			var encMatchURL = volMatch[j].vmUrl;
-	     			//console.log(encMatchURL);
 	     			var decMatchURL = decodeURIComponent(encMatchURL);
-	     			//console.log(decMatchURL);
 	     			var matchURL = $('<a>Click here for more information!</a>')
 	     				.addClass('.volMatchURL')
-	     				.attr('href', decMatchURL);
+	     				.attr('href', decMatchURL)
+	     				.attr("target","_blank");
 
-	     			//var flights = 
-
-	     			//var hotels = 
+	     			var linkRow = $('<div class="row" id="link">').html(matchURL);
+	     			orgDescription.append(linkRow);
 	     			
-	     			tripDiv.append(oppTitle);
-	     			tripDiv.append(endingDate);
-	 	 			tripDiv.append(orgName);
-	 	 			tripDiv.append(imgURL);
-	 	 			tripDiv.append(orgDescription);
-	 	 			tripDiv.append(loc);
-	 	 			//tripDiv.append(contactOrg);
-	 	 			//tripDiv.append(orgURL);
-	 	 			tripDiv.append(matchURL);
-	    
-	    //  			tripDiv.prepend(flights);
-	    //  			tripDiv.prepend(hotels);
+	     		
+	 	 			//$('#tripDiv').append(volResults);
 
-	    			//Prepend tripDiv to volResults
-	    			$('#volResults').prepend(tripDiv);
-	    		};
+	    			// Putting 5 volunteer opportunities in each column
+	     	 	if(j < 5) {
+	      			$('#volCol1').append(oppTitle);
+	      		}
+	      			else {
+	      				$('#volCol2').append(oppTitle);
+	      			}
+	    		}
+
 	    	//Clear the textboxes when done
 			$('#usersOrigin').val(" ");
 			$('#usersDestination').val(" ");
