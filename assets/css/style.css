@@ -8,9 +8,10 @@ body {
   	color: white;
 }
 /*gives container a background color, adds opacity and moves container down from the top of the webpage*/
-.container{
+.main-container{
 	background: rgba(54, 25, 25, .3);
-	margin-top: 20px;
+	margin: 20px;
+
 }
 .page-header{
 	position: relative;
@@ -21,6 +22,7 @@ h1 {
 	font-family: 'Pacifico', cursive;
 	font-size: 64px;
 	color: white;
+	padding: 10px;
 }
 
 h2 {
@@ -32,18 +34,18 @@ h2 {
 
 #login{
 	float: right;
-	background: none;
-	border:none;
+	margin:20px;
 }
 
-#signup{
+/*#signup{
 	float: right;
 	background: none;
 	border:none;
-}
+}*/
 
 #form-container{
-	padding: 20px;
+	padding: 50px;
+
 }
 
 .panel-heading{
@@ -57,6 +59,11 @@ form{
 	color: black;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 18px;
+}
+
+p{
+	float:right;
+	padding-top: 20px;
 }
 
 div.c-wrapper{
