@@ -119,45 +119,68 @@ margin: auto;
 	background-size: cover;
 }
 
-/* floating the volunteer images */
-/*
+/* styling volunteer info */
 
-
-
-
-.volOrgName {
-	text-align: left;
+.volOpp {
+	text-align: center;
 }
 
-.volDescription {
-	text-align: left;
+.trip {
+	background-color: rgba(217, 179, 140, .4);
+	border-radius: 2px;
+	line-height: 1.5;
+	text-shadow: 1.3px 1.3px #140d06;
 }
-
-.volLocation {
-	text-align: left;
-}
-*/
 
 #volTitle {
-	margin: 15px;
+	padding: 10px;
 }
 
 #end {
-	margin: 15px;
+	margin: 10px 0px;
+	padding-left: 10px;
 }
 
 #org {
-	margin: 15px;
+	margin: 10px 0px;
+	padding-left: 10px;
+}
+
+#location {
+	margin: 10px 0px;
+	padding-left: 10px;
+}
+
+#orgImg {
+	margin: 10px 0px;
+	padding: 10px;
 }
 
 .volImg {
-	zoom: 70%;		
+	margin: 10px 0px;
+	zoom: 70%;	
+	padding: 10px;		
 }
 
 #description {
-	font-size: 17px;
+	
+	font-size: 15px;
+	line-height: 1.5;
+	margin: 10px 0px;
+	padding: 10px;
 	
 }
+
+#link {
+	margin: 10px 0px;
+}
+
+#link > a {
+	color: #140d06;
+	text-shadow: 0px 0px;
+}
+
+
 
 
 

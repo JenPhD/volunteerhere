@@ -66,12 +66,8 @@ $(document).ready (function(){
 
 //FUNCTIONS
 	//=================================================================================================
-	//Create the query URL based on the chosen destination.
-	//using document.body in case there are any scope problems
-
-
-	
-		// This line of code will grab the header from the carousel city.
+	//This hides the volunteer opportunities header until user selects destination
+	$('.volOpp').hide();
 
 	//This function handles when the user selects a feature destination;
 	$('.featureCity').on('click', function(){
@@ -102,7 +98,10 @@ $(document).ready (function(){
 		featureDestinations.push(volSearch.location);
 	
   		//first empty the div with any previous search results
-  		$('#volResults').empty();
+  		$('.trip').empty();
+
+  		//Show header for volunteer opportunities
+  		$('.volOpp').show();
   		
   		//Build the queryURL with the query URL base and the search terms --the destination (and trip dates?)
 
@@ -139,16 +138,16 @@ $(document).ready (function(){
 	     			} else {
 	     			var endingDate = $('<div class="row" id="end">').text("End Date: " + volMatch[j].availability.endDate);
 	     			}
-	     			//Appending to volResults
-	     			oppTitle.append(endingDate);
+	     			//Appending to the title
+	     			volResults.append(endingDate);
 	     			
-	     			//Organization name
+	     			//Organization name appending to end date
 	      			var orgName = $('<div class="row" id="org">').text(volMatch[j].parentOrg.name);
-	     			endingDate.append(orgName);
+	     			volResults.append(orgName);
 
-	     			//Adding location
+	     			//Adding location appending to organization name
 	     			var loc = $('<div class="row" id="location">').text(volMatch[j].location.city + ", " + volMatch[j].location.region);
-	     			orgName.append(loc);
+	     			volResults.append(loc);
 	     			//Images URL. Need to convert to an actual image.
 	     			
 	     			if (volMatch[j].imageUrl == null) {
@@ -163,11 +162,11 @@ $(document).ready (function(){
 	     			}
 	     			//Create new row for images
 	     			var imgRow = $('<div class="row" id="orgImg">').html(imgURL);
-	     			loc.append(imgRow);
+	     			volResults.append(imgRow);
 	     			
 	     			//Description of volunteer opportunity
 	     			var orgDescription = $('<div class="row" id="description">').text(volMatch[j].plaintextDescription);
-	     			imgRow.append(orgDescription);
+	     			volResults.append(orgDescription);
 
 	     			//Volunteer Match URL
 	     			var encMatchURL = volMatch[j].vmUrl;
@@ -180,21 +179,19 @@ $(document).ready (function(){
 	     			var linkRow = $('<div class="row" id="link">').html(matchURL);
 	     			orgDescription.append(linkRow);
 	     			
-	     		
-	 	 			//$('#tripDiv').append(volResults);
-
 	    			// Putting 5 volunteer opportunities in each column
-	     	 	if(j < 5) {
-	      			$('#volCol1').append(oppTitle);
-	      		}
+	     	 		if(j < 5) {
+	      				$('#volCol1').append(volResults);
+	      			}
 	      			else {
-	      				$('#volCol2').append(oppTitle);
+	      				$('#volCol2').append(volResults);
 	      			}
 	    		}
 
 	    	//Clear the textboxes when done
 			$('#usersOrigin').val(" ");
 			$('#usersDestination').val(" ");
+
 	    });	
 	    // We have this line so that users can hit "enter" instead of clicking on the button
 		return false;
