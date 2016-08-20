@@ -43,11 +43,18 @@
 								</div>
 								<div class="col-md-4">
 									<label for="usersDestination">Flying to</label> <i class="fa fa-plane" aria-hidden="true"></i>
-									<input type="text" class="form-control" id="usersDestination" placeholder="City, State (ex: Orlando,FL)*"> 
+									<input type="text" value="Orlando, FL" class="form-control" id="usersDestination" placeholder="City, State (ex: Orlando,FL)*"> 
 								</div> 
+								<div class="col-md-4">
+									<div id="controls">
+									<label for="usersCountry">Country</label> <i class="fa fa-flag" aria-hidden="true"></i>
+      									<select id="country">
+        								<option value="us" selected>U.S.A.</option>
+      									</select>
+    								</div>
+								</div>	
 							</div>	
-						</div>	
-					
+						</div>
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4"
@@ -110,20 +117,14 @@
     		</a>	
 		</div>		
 	</div> <!-- end of container -->
-
+ <!--hiding because taking input from usersDestination
 	<div id="findhotels">
       Find hotels in:
     </div>
 
     <div id="locationField">
       <input id="autocomplete" placeholder="Enter a city" type="text" />
-    </div>
-
-    <div id="controls">
-      <select id="country">
-        <option value="us" selected>U.S.A.</option>
-      </select>
-    </div>
+    </div> -->
 
     <div id="map"></div>
 

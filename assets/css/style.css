@@ -159,10 +159,10 @@ margin: auto;
    background-color: #fff;
  }
  #controls {
-   position: absolute;
+   /*position: absolute;
    left: 300px;
    width: 140px;
-   top: 0px;
+   top: 0px;*/
    z-index: 5;
    background-color: #fff;
  }
