@@ -43,11 +43,18 @@
 								</div>
 								<div class="col-md-4">
 									<label for="usersDestination">Flying to</label> <i class="fa fa-plane" aria-hidden="true"></i>
-									<input type="text" class="form-control" id="usersDestination" placeholder="City, State (ex: Orlando,FL)*"> 
+									<input type="text" value="Orlando, FL" class="form-control" id="usersDestination" placeholder="City, State (ex: Orlando,FL)*"> 
 								</div> 
+								<div class="col-md-4">
+									<div id="controls">
+									<label for="usersCountry">Country</label> <i class="fa fa-flag" aria-hidden="true"></i>
+      									<select id="country">
+        								<option value="us" selected>U.S.A.</option>
+      									</select>
+    								</div>
+								</div>	
 							</div>	
-						</div>	
-					
+						</div>
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4"
@@ -110,6 +117,49 @@
     		</a>	
 		</div>		
 	</div> <!-- end of container -->
+ <!--hiding because taking input from usersDestination
+	<div id="findhotels">
+      Find hotels in:
+    </div>
+
+    <div id="locationField">
+      <input id="autocomplete" placeholder="Enter a city" type="text" />
+    </div> -->
+
+    <div id="map"></div>
+
+    <div id="listing">
+      <table id="resultsTable">
+        <tbody id="results"></tbody>
+      </table>
+    </div>
+
+    <div style="display: none">
+      <div id="info-content">
+        <table>
+          <tr id="iw-url-row" class="iw_table_row">
+            <td id="iw-icon" class="iw_table_icon"></td>
+            <td id="iw-url"></td>
+          </tr>
+          <tr id="iw-address-row" class="iw_table_row">
+            <td class="iw_attribute_name">Address:</td>
+            <td id="iw-address"></td>
+          </tr>
+          <tr id="iw-phone-row" class="iw_table_row">
+            <td class="iw_attribute_name">Telephone:</td>
+            <td id="iw-phone"></td>
+          </tr>
+          <tr id="iw-rating-row" class="iw_table_row">
+            <td class="iw_attribute_name">Rating:</td>
+            <td id="iw-rating"></td>
+          </tr>
+          <tr id="iw-website-row" class="iw_table_row">
+            <td class="iw_attribute_name">Website:</td>
+            <td id="iw-website"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 	
 	<div class="container">
 		<div class="row">
@@ -126,19 +176,18 @@
 <!-- <footer class="footer">
       
 </footer> -->
-
-	<!-- Firebase JavaScript Link -->
+<!-- Firebase JavaScript Link -->
 	<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>  
   <!-- jQuery 2.2.4 -->
   <script src="assets/javascript/jquery-2.2.4.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <!--firebase-->
-  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
   <!--moment.js-->
   <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaUyn2RKcE8ngjkzT_MdoiUYyVodn4X3g&libraries=places&callback=initMap"
+        async defer></script>
   <!-- Local javascript operations file -->
-  <script src="assets/javascript/app.js"></script>
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+  </body>
 
-</body>
 </html>
