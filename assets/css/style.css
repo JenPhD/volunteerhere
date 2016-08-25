@@ -54,6 +54,24 @@ h2 {
 
 }
 
+#inputBox{
+	float: right;
+	padding-right: 20px;
+}
+
+#inputBox .btn {
+	float: right;
+}
+
+#welcomeName { 
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 28px;
+}
+
+#error{
+	color: red;
+}
+
 form{
 	padding:10px;
 	color: black;
@@ -64,6 +82,26 @@ form{
 p{
 	float:right;
 	padding-top: 20px;
+}
+
+/*need to come and fix this*/
+a .scroll{
+	text-decoration: none;
+	float: right;
+	font-size: 14px;
+	font-family:'Open Sans Condensed', sans-serif;
+	color: black;
+	background-color: #f0f0f0;
+	border:1px solid #ccc;
+	border-radius: 2px;
+	position: fixed;
+	bottom: 10%;
+	right: 0;
+	min-width: 20px;
+	text-align: center;
+	padding: 0 5px 1px;
+	opacity: 0;
+	animation: buttonFade .5s 1s 1 forwards;
 }
 
 div.c-wrapper{
@@ -119,144 +157,15 @@ margin: auto;
 	background-size: cover;
 }
 
-/* styling hotel info */
-      
- #map {
-   height: 100%;
- }
- table {
-   font-size: 12px;
- }
- #map {
-   width: 440px;
- }
- #listing {
-   position: absolute;
-   width: 200px;
-   height: 470px;
-   overflow: auto;
-   left: 442px;
-   top: 0px;
-   cursor: pointer;
-   overflow-x: hidden;
- }
- #findhotels {
-   position: absolute;
-   text-align: right;
-   width: 100px;
-   font-size: 14px;
-   padding: 4px;
-   z-index: 5;
-   background-color: #fff;
- }
- #locationField {
-   position: absolute;
-   width: 190px;
-   height: 25px;
-   left: 108px;
-   top: 0px;
-   z-index: 5;
-   background-color: #fff;
- }
- #controls {
-   /*position: absolute;
-   left: 300px;
-   width: 140px;
-   top: 0px;
-   z-index: 5;
-   background-color: #fff;*/
- }
- #autocomplete {
-   width: 100%;
- }
- #country {
-   width: 100%;
- }
- .placeIcon {
-   width: 20px;
-   height: 34px;
-   margin: 4px;
- }
- .hotelIcon {
-   width: 24px;
-   height: 24px;
- }
- #resultsTable {
-   border-collapse: collapse;
-   width: 240px;
- }
- #rating {
-   font-size: 13px;
-   font-family: Arial Unicode MS;
- }
- .iw_table_row {
-   height: 18px;
- }
- .iw_attribute_name {
-   font-weight: bold;
-   text-align: right;
- }
- .iw_table_icon {
-   text-align: right;
- }
-
-/* styling volunteer info */
-
-.volOpp {
-  text-align: center;
+#submit3.btn {
+	margin: 10px;
 }
 
-.trip {
-  background-color: rgba(217, 179, 140, .4);
-  border-radius: 2px;
-  line-height: 1.5;
-  text-shadow: 1.3px 1.3px #140d06;
-}
+/*.panel-heading {
+	background-color: rgba(190, 185, 181, .3);
+	color: black;
+}*/
 
-#volTitle {
-  padding: 10px;
-}
 
-#end {
-  margin: 10px 0px;
-  padding-left: 10px;
-}
 
-#org {
-  margin: 10px 0px;
-  padding-left: 10px;
-}
 
-#location {
-  margin: 10px 0px;
-  padding-left: 10px;
-}
-
-#orgImg {
-  margin: 10px 0px;
-  padding: 10px;
-}
-
-.volImg {
-  margin: 10px 0px;
-  zoom: 70%;  
-  padding: 10px;    
-}
-
-#description {
-  
-  font-size: 15px;
-  line-height: 1.5;
-  margin: 10px 0px;
-  padding: 10px;
-  
-}
-
-#link {
-  margin: 10px 0px;
-}
-
-#link > a {
-  color: #140d06;
-  text-shadow: 0px 0px;
-}
