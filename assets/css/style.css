@@ -54,6 +54,24 @@ h2 {
 
 }
 
+#inputBox{
+	float: right;
+	padding-right: 20px;
+}
+
+#inputBox .btn {
+	float: right;
+}
+
+#welcomeName { 
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 28px;
+}
+
+#error{
+	color: red;
+}
+
 form{
 	padding:10px;
 	color: black;
@@ -64,6 +82,26 @@ form{
 p{
 	float:right;
 	padding-top: 20px;
+}
+
+/*need to come and fix this*/
+a .scroll{
+	text-decoration: none;
+	float: right;
+	font-size: 14px;
+	font-family:'Open Sans Condensed', sans-serif;
+	color: black;
+	background-color: #f0f0f0;
+	border:1px solid #ccc;
+	border-radius: 2px;
+	position: fixed;
+	bottom: 10%;
+	right: 0;
+	min-width: 20px;
+	text-align: center;
+	padding: 0 5px 1px;
+	opacity: 0;
+	animation: buttonFade .5s 1s 1 forwards;
 }
 
 div.c-wrapper{
@@ -119,6 +157,13 @@ margin: auto;
 	background-size: cover;
 }
 
+<<<<<<< HEAD
+=======
+
+#submit3.btn {
+	margin: 10px;
+
+>>>>>>> 38c148ac92a74ddbc36bb00ab59b284373ec776f
 /* styling volunteer info */
 
 .volOpp {
@@ -149,31 +194,13 @@ margin: auto;
 #location {
   margin: 10px 0px;
   padding-left: 10px;
+
 }
 
-#orgImg {
-  margin: 10px 0px;
-  padding: 10px;
-}
-
-.volImg {
-  margin: 10px 0px;
-  zoom: 70%;  
-  padding: 10px;    
-}
-
-#description {
-  
-  font-size: 15px;
-  line-height: 1.5;
-  margin: 10px 0px;
-  padding: 10px;
-  
-}
-
-#link {
-  margin: 10px 0px;
-}
+/*.panel-heading {
+	background-color: rgba(190, 185, 181, .3);
+	color: black;
+}*/
 
 #link > a {
   color: #140d06;
@@ -182,3 +209,4 @@ margin: auto;
 #submit1 {
   font-family:'Open Sans Condensed', sans-serif;
 }
+

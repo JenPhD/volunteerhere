@@ -25,14 +25,25 @@
 				<h2>Volunteer anywhere</h2>
 			</h1> 
 		  	<!-- Single button -->
-			<button type="button" id="login" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Login <i class="fa fa-sign-in" aria-hidden="true"></i>		
+				
+			<div id="inputBox">
+				<button type="button" id="login" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Login <i class="fa fa-sign-in" aria-hidden="true"></i>
+				</button>
+				<input type="text" class="form-control" placeholder="USERNAME" id="username"/>
+				<div id="error" style="diplay:none;"></div>
+				<input type="password" class="form-control" placeholder="PASSWORD" display id="password"/>
+				<button type="submit" class="btn btn-default" id="submit1">Submit</button>
+				<div id="welcomeName"></div>
+				<button type="submit" class="btn btn-default" id="logout">Logout <i class="fa fa-sign-in" aria-hidden="true"></i>
+				</button>
+			</div>	
 		</div> <!-- end of header -->
 			
 			<div class="container" id="form-container"> <!-- container for form -->
 				
 				<div class="panel panel-default" id="panelOverride">
 					<div class="panel-heading">Plan a trip:
-					</div>
+				</div>
 
 					<form> <!--users input -->
 						<div class="form-group">
@@ -43,18 +54,11 @@
 								</div>
 								<div class="col-md-4">
 									<label for="usersDestination">Flying to</label> <i class="fa fa-plane" aria-hidden="true"></i>
-									<input type="text" value="Orlando, FL" class="form-control" id="usersDestination" placeholder="City, State (ex: Orlando,FL)*"> 
+									<input type="text" class="form-control" id="usersDestination" placeholder="City, State (ex: Orlando,FL)*"> 
 								</div> 
-								<div class="col-md-4">
-									<div id="controls">
-									<label for="usersCountry">Country</label> <i class="fa fa-flag" aria-hidden="true"></i>
-      									<select id="country">
-        								<option value="us" selected>U.S.A.</option>
-      									</select>
-    								</div>
-								</div>	
 							</div>	
-						</div>
+						</div>	
+					
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4"
@@ -81,29 +85,30 @@
 							</div>    
 						</div>
 						
-						<button type="submit" class="submitCity btn btn-default" id="sumbit"><span class='fa fa-search'></span> Search</button>
+						<button type="submit" class="btn btn-default" id="submit2"><span class='fa fa-search' aria-hidden="true"></span> Search</button>
+						<button type="submit" class="btn btn-default" id="submit3"><span class='fa fa-floppy-o' aria-hidden="true"> </span> Save Search</button>
 						<p>*destinations are limited to the United States</p>
 					</form>	
 				</div>		
 			</div> <!-- end of form container -->
-		
+
 		<div id="featured-destinations" class="carousel slide" data-ride="carousel"> <!-- Carousel -->
 			<div class="c-wrapper">
 				<div class="carousel-inner" role="listbox">
 					<h1 class="destinations">Featured Destinations...</h1>
-					<div id="NYC" class="featureCity item active" name="New York City, NY">
+					<div id="NYC" class="item active">
 						<h2 class="city-name">NEW YORK CITY</h2>
 					</div>
-					<div id="AUSTIN" class="featureCity item" name="Austin, TX">
+					<div id="AUSTIN" class="item">
 						<h2 class="city-name">AUSTIN</h2>
 					</div>
-					<div id="WDC" class="featureCity item" name="Washington DC">
+					<div id="WDC" class="item">
 						<h2 class="city-name">WASHINGTON D.C.</h2>
 					</div>
-					<div id="LA" class="featureCity item" name="Los Angeles, CA">
+					<div id="LA" class="item">
 						<h2 class="city-name">LOS ANGELES</h2>
 					</div>
-					<div id="CHICAGO" class="featureCity item" name="Chicago, IL">
+					<div id="CHICAGO" class="item">
 						<h2 class="city-name">CHICAGO</h2>
 					</div>
 				</div>
@@ -115,52 +120,17 @@
 			<a class="right carousel-control" href="#featured-destinations" role="button" data-slide="next">
     			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>	
     		</a>	
-		</div>		
+		</div>
+		<div id="flights"></div>		
 	</div> <!-- end of container -->
- <!--hiding because taking input from usersDestination
-	<div id="findhotels">
-      Find hotels in:
-    </div>
 
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter a city" type="text" />
-    </div> -->
-
-    <div id="map"></div>
-
-    <div id="listing">
-      <table id="resultsTable">
-        <tbody id="results"></tbody>
-      </table>
-    </div>
-
-    <div style="display: none">
-      <div id="info-content">
-        <table>
-          <tr id="iw-url-row" class="iw_table_row">
-            <td id="iw-icon" class="iw_table_icon"></td>
-            <td id="iw-url"></td>
-          </tr>
-          <tr id="iw-address-row" class="iw_table_row">
-            <td class="iw_attribute_name">Address:</td>
-            <td id="iw-address"></td>
-          </tr>
-          <tr id="iw-phone-row" class="iw_table_row">
-            <td class="iw_attribute_name">Telephone:</td>
-            <td id="iw-phone"></td>
-          </tr>
-          <tr id="iw-rating-row" class="iw_table_row">
-            <td class="iw_attribute_name">Rating:</td>
-            <td id="iw-rating"></td>
-          </tr>
-          <tr id="iw-website-row" class="iw_table_row">
-            <td class="iw_attribute_name">Website:</td>
-            <td id="iw-website"></td>
-          </tr>
-        </table>
-      </div>
-    </div>
 	
+	<a href="#" class="scroll" style="display: block;">
+		<i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+		<span>Scroll to top </span>
+	</a>
+
+ 	
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -190,25 +160,23 @@
 			</center>
 		</div>
 
-
 <!-- <footer class="footer">
       
 </footer> -->
-<!-- Firebase JavaScript Link -->
+
+	<!-- Firebase JavaScript Link -->
 	<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>  
   <!-- jQuery 2.2.4 -->
   <script src="assets/javascript/jquery-2.2.4.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <!--firebase-->
+  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
   <!--moment.js-->
   <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
 
-<!-- Google Maps API -->
-<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaUyn2RKcE8ngjkzT_MdoiUYyVodn4X3g&libraries=places&callback=initMap"
-        async defer></script>
- -->
   <!-- Local javascript operations file -->
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
-  </body>
+  <script src="assets/javascript/app.js"></script>
 
+</body>
 </html>
