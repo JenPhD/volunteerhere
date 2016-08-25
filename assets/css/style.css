@@ -157,8 +157,41 @@ margin: auto;
 	background-size: cover;
 }
 
+
 #submit3.btn {
 	margin: 10px;
+
+/* styling volunteer info */
+
+.volOpp {
+  text-align: center;
+}
+
+.trip {
+  background-color: rgba(217, 179, 140, .4);
+  border-radius: 2px;
+  line-height: 1.5;
+  text-shadow: 1.3px 1.3px #140d06;
+}
+
+#volTitle {
+  padding: 10px;
+}
+
+#end {
+  margin: 10px 0px;
+  padding-left: 10px;
+}
+
+#org {
+  margin: 10px 0px;
+  padding-left: 10px;
+}
+
+#location {
+  margin: 10px 0px;
+  padding-left: 10px;
+
 }
 
 /*.panel-heading {
