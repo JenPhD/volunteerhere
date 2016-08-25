@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Place Autocomplete Hotel Search</title>
+    <title>Hotel Search</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style1.css">
+    <!-- google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i|Pacifico" rel="stylesheet">
+      <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- font link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
   </head>
 
   <body>
-
+    <div class="container">
+    <center>
     <div id="findhotels">
       Find hotels in:
     </div>
-
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter a city" type="text" />
+    <div id="form-container"> <!-- container for form -->
+        
+      <div class="panel panel-default" id="panelOverride">
+        <div class="panel-heading" align="left" id="plan">Plan a trip:
+      </div>
+    <form> <!-- User input -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6" id="locationField">
+          <label for="usersOrigin">Flying to</label> <i class="fa fa-plane" aria-hidden="true"></i>
+          <input id="autocomplete" placeholder="Enter a city" type="text" />
+        </div>
+        <div class="row">
+          <div class="col-md-6" id="controls">
+            <label for="usersCountry">Country</label> <i class="fa fa-flag" aria-hidden="true"></i>
+            <select id="country">
+            <option value="us" selected>U.S.A.</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </center>
+    </form>
     </div>
-
-    <div id="controls">
-      <select id="country">
-        <option value="us" selected>U.S.A.</option>
-      </select>
-    </div>
+    <br>
+    <br>
 
     <div id="map"></div>
 
@@ -59,7 +83,8 @@
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaUyn2RKcE8ngjkzT_MdoiUYyVodn4X3g&libraries=places&callback=initMap"
         async defer></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/javascript/app1.js"></script>
+
 
   </body>
 </html>

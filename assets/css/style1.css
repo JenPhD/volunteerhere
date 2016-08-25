@@ -1,0 +1,108 @@
+      html, body {
+       height: 100%;
+       margin: 0;
+       padding: 0;
+       background: url(balloons.jpg) no-repeat center center fixed;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+      }
+      .container{
+       background: rgba(54, 25, 25, .3);
+       margin: 10px;
+      }
+      #panelOverride {
+        width: 50%;
+      }
+      table {
+        font-size: 12px;
+      }
+      #map {
+        width: 800px;
+        position: center;
+        height: 50%;
+        margin: 0 auto 0 auto;
+        -moz-box-shadow: 0 0 80px #000000;
+        -webkit-box-shadow: 0 0 80px #000000;
+        box-shadow: 0 0 80px #000000;
+      }
+      #listing {
+        width: 200px;
+        height: 470px;
+        overflow: auto;
+        left: 442px;
+        top: 0px;
+        cursor: pointer;
+        overflow-x: hidden;
+        margin: 0 auto 0 auto;
+        float: right;
+        visibility: hidden;
+
+      }
+      #findhotels {
+        position: left;
+        text-align: left;
+        /*width: 100px;*/
+        font-family: 'Pacifico', cursive;
+        font-size: 64px;
+        color: white;
+        padding: 10px        
+        text-shadow: 1.3px 1.3px #140d06;
+      }
+      #plan {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 30px;
+      }
+      #locationField {
+        padding-left: 30px;
+        z-index: 5;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 20px;
+        align: left;
+      }
+      #controls {
+       position: right;
+       float: right;
+       padding-right: 50px;
+       z-index: 5;
+       font-size: 20px;
+       font-family: 'Open Sans Condensed', sans-serif;
+      }
+      #autocomplete {
+        width: 100%;
+      }
+      #country {
+        width: 100%;
+      }
+      .placeIcon {
+        width: 20px;
+        height: 34px;
+        margin: 4px;
+      }
+      .hotelIcon {
+        width: 24px;
+        height: 24px;
+      }
+      #resultsTable {
+        border-collapse: collapse;
+        width: 240px;
+        visibility: hidden;
+      }
+      #results {
+        visibility: hidden;
+      }
+      #rating {
+        font-size: 13px;
+        font-family: Arial Unicode MS;
+      }
+      .iw_table_row {
+        height: 18px;
+      }
+      .iw_attribute_name {
+        font-weight: bold;
+        text-align: right;
+      }
+      .iw_table_icon {
+        text-align: right;
+      }
