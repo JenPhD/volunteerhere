@@ -71,6 +71,11 @@ h2 {
 #error{
 	color: red;
 }
+.blackText{
+	font-family: 'Open Sans Condensed', sans-serif;
+	background-color: rgba(255, 255, 255,.8);
+	color: black;
+}
 
 form{
 	padding:10px;
