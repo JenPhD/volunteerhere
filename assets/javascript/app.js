@@ -121,7 +121,9 @@ $(document).ready (function(){
 			$('#departingDate').val(" ");
 			$('#returningDate').val(" ");
 			$('#flights').hide();
-			$('#vol').hide();
+			$('.trip').hide();
+			$('.volOpp').hide();
+			$('.scroll').hide();
 			return false;	
 		});
 	});
