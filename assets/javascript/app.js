@@ -114,11 +114,12 @@ $(document).ready (function(){
 		$('#logout').on('click', function(){
 			$('#login').show();
 			$('#logout').hide();
+			$('#submit1').hide(); //refers to the submit for the login section
 			$('#welcomeName').hide();
-			$('#usersOrigin').empty();
-			$('#usersDestination').empty();
-			$('#departingDate').empty();
-			$('#returningDate').empty();
+			$('#usersOrigin').val(" ");
+    		$('#usersDestination').val(" ");
+			$('#departingDate').val(" ");
+			$('#returningDate').val(" ");
 			return false;	
 		});
 	});
@@ -213,8 +214,7 @@ $(document).ready (function(){
 
    		//Show header for volunteer opportunities, scroll buttons, flights, and hotel submit button
     	$('.volOpp').show();
-    	$('.scroll').show();
-    	$('#submit1').show();
+    	$('.scroll').show();    	
     	$('#flights').show();
 
         //Build the queryURL with the query URL base and the search terms --the destination (and trip dates?)
@@ -286,8 +286,7 @@ $(document).ready (function(){
             	}
         	}
       	//Clear the textboxes when done
-    	$('#usersOrigin').val(" ");
-    	$('#usersDestination').val(" ");
+    	
     }); 
     
 	console.log("attempting ajax call")
@@ -343,7 +342,7 @@ $(document).ready (function(){
 			console.log(json);
 			console.log(json.trips);
     		console.log( json.trips.data.carrier)
-    		var flightsDiv=$("<div/>").addClass("blackText");
+    		var flightsDiv=$("<div/>").addClass("whiteText");
     		for(var i=0; i<json.trips.tripOption.length;i++)
     		{
 	    		for(var j=0; j<json.trips.data.carrier.length;j++){
@@ -359,6 +358,8 @@ $(document).ready (function(){
    			// $(".flights").append($("<br>"));
    			$(".flights").append(flightsDiv);
   		})
+
+  		
   		.fail(function( xhr, status, errorThrown ) {
    			//alert( "Sorry, there was a problem!" );
     		console.log( "Error: " + errorThrown );
