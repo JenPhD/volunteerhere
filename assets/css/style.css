@@ -37,11 +37,6 @@ h2 {
 	margin:20px;
 }
 
-/*#signup{
-	float: right;
-	background: none;
-	border:none;
-}*/
 
 #form-container{
 	padding: 50px;
@@ -53,11 +48,6 @@ h2 {
 	font-family:'Open Sans Condensed', sans-serif;
 
 }
-
-/*.panel-heading {
-	background-color: rgba(190, 185, 181, .3);
-	color: black;
-}*/
 
 #inputBox{
 	float: right;
@@ -232,7 +222,16 @@ margin: auto;
 	text-shadow: 0px 0px;
 }
 
+/* styling flights */
 
+.whiteText {
+	background-color: rgba(217, 179, 140, .4);
+	border-radius: 2px;
+	color: white;
+	line-height: 1.5;
+	padding: 10px;
+	text-shadow: 1.3px 1.3px #140d06;
+}
 
 
 
