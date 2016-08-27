@@ -120,6 +120,8 @@ $(document).ready (function(){
     		$('#usersDestination').val(" ");
 			$('#departingDate').val(" ");
 			$('#returningDate').val(" ");
+			$('#flights').hide();
+			$('#vol').hide();
 			return false;	
 		});
 	});
